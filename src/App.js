@@ -9,6 +9,8 @@ import Home from './Components/Home/Home';
 import UserWelcome from './Components/UserWelcome/UserWelcome';
 import UpdateForm from './Components/UserUpdateForm/UpdateForm';
 import PrivateRoutes from './PrivateRoutes';
+import EmailVerification from './Components/Email_verification/EmailVerification';
+import VerifyingCheck from './Components/Email_verification/VerifyingCheck';
 
 function App() {
   return (
@@ -22,7 +24,9 @@ function App() {
           <Route path="/login" element={<Login />} />
 
           <Route path="/welcome" element={<PrivateRoutes component={UserWelcome} alt={Home}/>} />
+          <Route path="/verifyemail" element={<PrivateRoutes component={EmailVerification} alt={Home}/>} />
           <Route path="/updatedetails" element={<PrivateRoutes component={UpdateForm} alt={Home}/>} />
+          <Route path="/VerifyingCheck" element={<PrivateRoutes component={VerifyingCheck} alt={Home}/>} />
 
         </Routes>
       </>

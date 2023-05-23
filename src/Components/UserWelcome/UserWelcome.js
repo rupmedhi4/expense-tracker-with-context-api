@@ -5,7 +5,7 @@ import UserWelcomePage from './UserWelcomeafterUpdate/UserWelcomePage '
 
 export default function UserWelcome() {
 
-    const {userUpdateHandler, users} = useContext(appContext)
+    const {emailVerificationHandler, users} = useContext(appContext)
     
     return (
         users.displayName ? 
@@ -17,7 +17,7 @@ export default function UserWelcome() {
             </div>
             <div className="profile-incomplete">
                 Your profile is Incomplete.
-                <span className="complete-link" onClick={userUpdateHandler}>Complete now</span>
+                <span className="complete-link" onClick={emailVerificationHandler}>Complete now</span>
             </div> 
             </div>
            

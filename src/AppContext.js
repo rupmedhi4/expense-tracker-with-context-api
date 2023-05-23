@@ -1,6 +1,6 @@
 import React, { createContext, useEffect, useState } from 'react'
 import { auth } from './firebase';
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, updateProfile } from 'firebase/auth';
+import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, updateProfile,sendEmailVerification } from 'firebase/auth';
 import { toast, ToastContainer } from 'react-toastify';
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -74,8 +74,9 @@ useEffect(()=>{
 },[])
 
 
-const userUpdateHandler= ()=>{
-    navigate("/updatedetails")
+const emailVerificationHandler= ()=>{
+     navigate("/verifyemail")
+ 
 }
 
 
@@ -96,7 +97,17 @@ const profileUpdateHandler = async(e)=>{
       toast.error(err.message)
       console.log(err)
     }
-   
+}
+
+
+const emailVerification = async ()=>{
+    try{
+        await sendEmailVerification(auth.currentUser)
+        toast.success('verification email sent')
+        navigate("/VerifyingCheck")
+    }catch(err){
+        toast.error(err.message)
+    }
 }
 
     const value = {
@@ -106,10 +117,11 @@ const profileUpdateHandler = async(e)=>{
         signupHandler, 
         loginEmail, setLoginEmail,
         loginPassword, setLoginPassword,
-        loginHandler, userUpdateHandler,
+        loginHandler, 
         userUpdateFullName,setUserUpdateFullName,
         photoUrl, setPhotoUrl, profileUpdateHandler,
-        users, setUsers
+        users, setUsers, emailVerificationHandler,
+        emailVerification
 
         
     }
