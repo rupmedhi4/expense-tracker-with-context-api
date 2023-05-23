@@ -1,6 +1,8 @@
 import React, { createContext, useEffect, useState } from 'react'
 import { auth } from './firebase';
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, updateProfile,sendEmailVerification } from 'firebase/auth';
+import { createUserWithEmailAndPassword, onAuthStateChanged, 
+        signInWithEmailAndPassword, updateProfile,sendEmailVerification,
+        sendPasswordResetEmail} from 'firebase/auth';
 import { toast, ToastContainer } from 'react-toastify';
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -26,6 +28,9 @@ export default function AppContextProvider({children}){
     //user details update state
     const [userUpdateFullName, setUserUpdateFullName]=useState("")
     const [photoUrl, setPhotoUrl]=useState("")
+
+    // Reset password state
+    const [resetPasswordEmail, setResetPasswordEmail]=useState("")
 
     
 
@@ -110,6 +115,20 @@ const emailVerification = async ()=>{
     }
 }
 
+const resetPasswordHandler = async (e)=>{
+    e.preventDefault()
+    try{
+         await sendPasswordResetEmail(auth, resetPasswordEmail)
+         toast.success('reset email sent')
+        setResetPasswordEmail("")
+
+    }catch(err){
+         toast.error(err.message)
+         console.log(err.message)
+    }
+    
+}
+
     const value = {
         email, setEmail,
         password, setPassword,
@@ -121,7 +140,8 @@ const emailVerification = async ()=>{
         userUpdateFullName,setUserUpdateFullName,
         photoUrl, setPhotoUrl, profileUpdateHandler,
         users, setUsers, emailVerificationHandler,
-        emailVerification
+        emailVerification,resetPasswordHandler,
+        resetPasswordEmail,setResetPasswordEmail
 
         
     }

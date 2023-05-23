@@ -3,10 +3,16 @@
 import React, { useContext } from 'react';
 import styles from './Login.module.css';
 import { appContext } from '../../AppContext';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
 
-    const {loginEmail, setLoginEmail, loginPassword, setLoginPassword, loginHandler}= useContext(appContext)
+  const navigate = useNavigate();
+    const {loginEmail, setLoginEmail, loginPassword, setLoginPassword, loginHandler,forgotPasswordHandler}= useContext(appContext)
+
+    const forgotPasswordFormHandler = ()=>{
+      navigate("/forgotpassword")
+    }
 
   return (
     <div className={styles.container}>
@@ -35,7 +41,10 @@ const Login = () => {
 
         <div className={styles.forgotPassword} >
              <button type="submit" onClick={loginHandler}>Log In</button>
-          <button type="button" style={{backgroundColor:"white", color:"blue", textDecoration:"underline"}}>Forgot Password</button>
+             <button type="button" 
+                  style={{backgroundColor:"white", 
+                  color:"blue", 
+                  textDecoration:"underline"}} onClick={forgotPasswordFormHandler}>Forgot Password</button>
 
         </div>
        <div className={styles.signup}>
