@@ -38,6 +38,7 @@ export default function Navbar() {
           <li><Link to="#">Products</Link></li>
           <li><Link to="/about">About us</Link></li>
           <li><Link to="/welcome">Deshboard</Link></li>
+          <li><Link to="/addexpenses">Add Your Expenses</Link></li>
           
 
         </ul>
