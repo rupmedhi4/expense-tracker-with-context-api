@@ -1,0 +1,43 @@
+.expenseTitle {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.details-container {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.details-header {
+  display: flex;
+  justify-content: space-between;
+  background-color: #f5f5f5;
+  padding: 10px;
+  font-weight: bold;
+}
+
+.details-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.header-item,
+.item {
+  flex-basis: 33.33%;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .details-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .header-item,
+  .item {
+    flex-basis: 100%;
+    text-align: left;
+  }
+}

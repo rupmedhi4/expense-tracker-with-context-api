@@ -13,12 +13,13 @@ import EmailVerification from './Components/Email_verification/EmailVerification
 import VerifyingCheck from './Components/Email_verification/VerifyingCheck';
 import ForgotPassword from './Components/ForgotPassword/ForgotPassword';
 import AddExpenses from './Components/Add_Expenses/AddExpenses';
+import ExpenseDetails from './Components/Add_Expenses/Expense details/ExpenseDetails';
 
 function App() {
   return (
     
       <>
-       <ToastContainer />
+      <ToastContainer />
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -30,8 +31,8 @@ function App() {
           <Route path="/updatedetails" element={<PrivateRoutes component={UpdateForm} alt={Home}/>} />
           <Route path="/VerifyingCheck" element={<PrivateRoutes component={VerifyingCheck} alt={Home}/>} />
           <Route path="/addexpenses" element={<PrivateRoutes component={AddExpenses} alt={Home}/>} />
-
         </Routes>
+       
       
       </>
     
