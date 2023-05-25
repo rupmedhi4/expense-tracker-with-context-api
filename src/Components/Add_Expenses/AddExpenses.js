@@ -16,7 +16,7 @@ export default function AddExpenses() {
   const [expense, setExpense] = useState([])
 
 
-  useEffect(()=>{
+  useEffect(() => {
     if (users) {
       const docRef = doc(db, "expense", users.uid);
       const unsubscribe = onSnapshot(docRef, (docSnap) => {
@@ -37,7 +37,7 @@ export default function AddExpenses() {
 
   const addExpenseHandler = async (e) => {
     e.preventDefault();
-    const data ={
+    const data = {
       moneySpent,
       expenseDescription,
       category
@@ -46,7 +46,7 @@ export default function AddExpenses() {
       await setDoc(doc(db, "expense", users.uid), {
         expense: [...expense, data]
       });
-
+     
       toast.success('Expense added successfully');
     } catch (err) {
       toast.error(err.message);
@@ -94,7 +94,7 @@ export default function AddExpenses() {
           <button type="submit">Submit</button>
         </form>
       </div>
-      <ExpenseDetails />
+      <ExpenseDetails expense={expense}/>
     </>
   );
 }

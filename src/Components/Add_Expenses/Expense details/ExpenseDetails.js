@@ -1,10 +1,7 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import './ExpenseDetails.css';
-import { appContext } from '../../../AppContext';
 
-export default function ExpenseDetails() {
- 
-
+export default function ExpenseDetails({ expense }) {
   return (
     <>
       <h1 className="expenseTitle">Expense Details</h1>
@@ -14,13 +11,16 @@ export default function ExpenseDetails() {
           <div className="header-item">Expense Description</div>
           <div className="header-item">Category</div>
         </div>
-        
-          <div  className="details-item">
-            <div className="item">moneySpent</div>
-            <div className="item">expenseDescription</div>
-            <div className="item">category</div>
-          </div>
-       
+
+        {expense.map((data) => {
+          return (
+            <div className="details-item">
+              <div className="item">{data.moneySpent}</div>
+              <div className="item">{data.expenseDescription}</div>
+              <div className="item">{data.category}</div>
+            </div>
+          );
+        })}
       </div>
     </>
   );
