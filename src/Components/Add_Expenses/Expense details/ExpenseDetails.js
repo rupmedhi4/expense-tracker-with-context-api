@@ -3,7 +3,7 @@ import './ExpenseDetails.css';
 import { appContext } from '../../../AppContext';
 
 export default function ExpenseDetails() {
-  const { ExpenseData } = useContext(appContext);
+ 
 
   return (
     <>
@@ -14,13 +14,13 @@ export default function ExpenseDetails() {
           <div className="header-item">Expense Description</div>
           <div className="header-item">Category</div>
         </div>
-        {ExpenseData.map((expense, index) => (
-          <div key={index} className="details-item">
-            <div className="item">{expense.moneySpent}</div>
-            <div className="item">{expense.expenseDescription}</div>
-            <div className="item">{expense.category}</div>
+        
+          <div  className="details-item">
+            <div className="item">moneySpent</div>
+            <div className="item">expenseDescription</div>
+            <div className="item">category</div>
           </div>
-        ))}
+       
       </div>
     </>
   );

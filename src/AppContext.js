@@ -34,8 +34,8 @@ export default function AppContextProvider({ children }) {
     // Reset password state
     const [resetPasswordEmail, setResetPasswordEmail] = useState("")
 
-    // Expense Arrey 
-    const [ExpenseData, setExpenseData]=useState([]);
+  
+   
 
 
 
@@ -147,7 +147,7 @@ export default function AppContextProvider({ children }) {
         users, setUsers, emailVerificationHandler,
         emailVerification, resetPasswordHandler,
         resetPasswordEmail, setResetPasswordEmail,
-        ExpenseData,setExpenseData
+        
 
 
 
